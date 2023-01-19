@@ -4,12 +4,21 @@ export enum Scales {
   kelvin = 'kelvin',
 }
 
+interface IConversionProps {
+  temperature: number;
+  scale: Scales;
+  scaleToConvert: Scales;
+}
+
 export class TemperatureConverter {
-  constructor(
-    private temperature: number,
-    private scale: Scales,
-    private scaleToConvert: Scales
-  ) {
+  private temperature: number;
+  private scale: Scales;
+  private scaleToConvert: Scales;
+
+  constructor({ temperature, scale, scaleToConvert }: IConversionProps) {
+    this.temperature = temperature;
+    this.scale = scale;
+    this.scaleToConvert = scaleToConvert;
     this.validate();
   }
 
