@@ -23,9 +23,18 @@ export class TemperatureConverter {
   }
 
   validate() {
-    const isValidScale = this.scale in Scales;
+    const isValidScale = Object.values(Scales).find(
+      (scale) => scale === this.scale
+    );
+
+    const isValidConversionScale = Object.values(Scales).find(
+      (conversionScale) => conversionScale === this.scaleToConvert
+    );
 
     if (!isValidScale) throw new Error('Invalid termometric scale!');
+
+    if (!isValidConversionScale)
+      throw new Error('Invalid termometric conversion scale!');
 
     if (this.scale === this.scaleToConvert)
       throw new Error("You're trying to convert to the same scale!");
