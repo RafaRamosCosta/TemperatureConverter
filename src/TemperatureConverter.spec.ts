@@ -83,4 +83,24 @@ describe('Temperature Converter', () => {
         })
     ).toThrowError("You're trying to convert to the same scale!");
   });
+
+  it ('should trhow an error if the scale and/or the scaleToConvert are invalid', () => {
+    expect(
+      () =>
+        new TemperatureConverter({
+          temperature: 100,
+          scale: 'invalid scale',
+          scaleToConvert: Scales.kelvin,
+        })
+    ).toThrowError("Invalid termometric scale!");
+
+    expect(
+      () =>
+        new TemperatureConverter({
+          temperature: 100,
+          scale: Scales.kelvin,
+          scaleToConvert: 'invalid scaleToConvert',
+        })
+    ).toThrowError("Invalid termometric conversion scale!");
+  })
 });
