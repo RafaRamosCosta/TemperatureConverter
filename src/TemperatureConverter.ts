@@ -23,11 +23,10 @@ export class TemperatureConverter {
   }
 
   validate() {
-    const isValidScale = Object.values(Scales).find(
-      (scale) => scale === this.scale
-    );
+    const validScales = Object.values(Scales);
+    const isValidScale = validScales.find((scale) => scale === this.scale);
 
-    const isValidConversionScale = Object.values(Scales).find(
+    const isValidConversionScale = validScales.find(
       (conversionScale) => conversionScale === this.scaleToConvert
     );
 
