@@ -6,7 +6,8 @@
   "author": "RafaRamosCosta <rm94281@fiap.com.br>",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "ts-node-dev src/main.ts"
   },
   "devDependencies": {
     "@types/jest": "^29.2.6",
